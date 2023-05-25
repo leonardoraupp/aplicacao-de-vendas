@@ -27,7 +27,7 @@ public class Main {
                     double valor = leitura.nextDouble();
 
                     Produto produto = new Produto (descricao, valor);
-                    carrinho.adicionarAoCarrinho(produto);
+                    carrinho.adicionarItemAoCarrinho(produto);
 
                     System.out.println("Cadastrar novo produto? (s/n): ");
                     sair = leitura.next();

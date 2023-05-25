@@ -4,35 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrinho {
+    private List<Produto> carrinho;
+    private double valorTotal = 0;
+
     public Carrinho() {
         this.carrinho = new ArrayList<>();
     }
-
-    private List<Produto> carrinho;
-    private double valorTotal = 0;
 
     public List<Produto> getCarrinho() {
         return carrinho;
     }
 
-//    public void setCarrinho(List<Produto> carrinho) {
-//        this.carrinho = carrinho;
-//    }
-
-
     public double getValorTotal() {
         return valorTotal;
     }
 
-//    public List<Produto> adicionarItens(Produto item) {
-//        List <Produto> produtos = new ArrayList<>();
-//        produtos.add(item);
-//        carrinho.addAll(produtos);
-////        carrinho.add(item);
-//        return carrinho;
-//    }
-    public void adicionarAoCarrinho(Produto item) {
+    public List<Produto> adicionarItemAoCarrinho(Produto item) {
+        List <Produto> produtos = new ArrayList<>();
         carrinho.add(item);
+        return carrinho;
     }
 
     public double somarProdutos() {
