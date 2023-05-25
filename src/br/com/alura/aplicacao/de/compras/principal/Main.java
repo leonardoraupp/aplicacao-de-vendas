@@ -8,35 +8,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-        String respostaCadastrarProduto = "s";
-        String nome = "";
-        double valor = 0;
-        CartaoDeCredito cartaoDeCredito = new CartaoDeCredito();
+        Scanner leitura = new Scanner(System.in);
+        double limite = 0;
         Carrinho carrinho = new Carrinho();
 
-        System.out.println("APLICAÇÃO DE VENDAS");
-        cartaoDeCredito.configurarLimite();
+        System.out.println("Insira o limite do seu cartão: ");
+        limite = leitura.nextDouble();
+        CartaoDeCredito cartao = new CartaoDeCredito(limite);
 
-        while (respostaCadastrarProduto.equalsIgnoreCase("s")) {
+        System.out.println("APLICAÇÃO DE VENDAS");
+
+        String sair = "s";
+        while (sair.equalsIgnoreCase("s")) {
                     System.out.println("Digite o nome do produto");
-                    nome = teclado.next();
+                    String descricao = leitura.next();
+
                     System.out.println("Digite o valor do produto");
-                    valor = teclado.nextDouble();
-                    Produto produto = new Produto (nome, valor);
-                    carrinho.adicionarItens(produto);
-                    carrinho.verItemsDoCarrinho();
+                    double valor = leitura.nextDouble();
+
+                    Produto produto = new Produto (descricao, valor);
+                    carrinho.adicionarAoCarrinho(produto);
 
                     System.out.println("Cadastrar novo produto? (s/n): ");
-                    respostaCadastrarProduto = teclado.next();
+                    sair = leitura.next();
             }
         carrinho.somarProdutos();
-        cartaoDeCredito.aprovarCompra(carrinho);
+        cartao.aprovarCompra(carrinho);
 
         System.out.println("*****");
         System.out.println("Relatório:");
-        System.out.println("Limite atual " + cartaoDeCredito.getLimite());
-        System.out.println(("Valor total do carrinho " + carrinho.getTotal()));
+        System.out.println("Limite atual " + cartao.getLimite());
+        System.out.println(("Valor total do carrinho " + carrinho.getValorTotal()));
         carrinho.verItemsDoCarrinho();
         System.out.println("*****");
         System.out.println("Encerrando...");
