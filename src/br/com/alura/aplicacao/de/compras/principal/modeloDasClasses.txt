@@ -1,0 +1,33 @@
+Carrinho
+
+atributos:
+item
+
+metodos:
+removerItem();
+comprarProduto();
+
+Cartão de crédito feito
+
+atributos:
+limite;
+saldo;
+valorDaCompra;
+
+métodos:
+configurarLimite();
+aprovarCompra();
+
+Produto
+
+atributos:
+nomeProduto;
+valorProduto;
+
+métodos:
+adicionarItemCarrinho();
+cadastrarProduto(); feito
+
+
+
+
