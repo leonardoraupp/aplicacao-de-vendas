@@ -3,11 +3,17 @@ package br.com.alura.aplicacao.de.compras.modelos;
 import java.util.Scanner;
 
 public class Produto {
+
     private static String nome;
     private static double valor;
     private static Scanner leitorDeDados = new Scanner(System.in);
 
     private Carrinho carrinho = new Carrinho();
+
+    public Produto(String nome, double valor) {
+        this.nome = nome;
+        this.valor = valor;
+    }
 
     public String getNome() {
         return nome;

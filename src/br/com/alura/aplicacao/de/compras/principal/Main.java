@@ -12,7 +12,7 @@ public class Main {
         Scanner teclado = new Scanner(System.in);
         int opcaoUser = 1;
 
-        Produto produto = new Produto();
+
         CartaoDeCredito cartaoDeCredito = new CartaoDeCredito();
         Carrinho carrinho = new Carrinho();
 
@@ -21,24 +21,27 @@ public class Main {
 
         while (opcaoUser != 0) {
             System.out.println("CADASTRO DE PRODUTOS");
-            String nome;
-            double valor;
 
             while (opcaoUser != 0) {
+                String nome;
+                double valor;
+
 
                 System.out.println("Digite o nome do produto");
                 nome = teclado.next();
                 System.out.println("Digite o valor do produto");
                 valor = teclado.nextDouble();
-
-                produto.setNome(nome);
-                produto.setValor(valor);
+                Produto produto = new Produto(nome, valor);
+//
+//                produto.setNome(nome);
+//                produto.setValor(valor);
                 carrinho.adicionarItens(produto);
 
                 System.out.println("Opção 0 para Sair");
                 System.out.println("Opção 1 para Continuar");
                 opcaoUser = teclado.nextInt();
             }
+            System.out.println("Passei aqui");
             carrinho.somarProdutos();
             cartaoDeCredito.aprovarCompra(carrinho);
             System.out.println("Saldo atual: " + cartaoDeCredito.getSaldo());
