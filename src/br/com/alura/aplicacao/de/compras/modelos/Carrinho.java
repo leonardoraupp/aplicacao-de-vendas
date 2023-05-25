@@ -1,14 +1,18 @@
 package br.com.alura.aplicacao.de.compras.modelos;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Carrinho {
+
     private List<Produto> carrinho = new ArrayList<>();
 
     public List<Produto> getCarrinho() {
         return carrinho;
+    }
+
+    public void setCarrinho(List<Produto> carrinho) {
+        this.carrinho = carrinho;
     }
 
     private double total = 0;
@@ -18,7 +22,10 @@ public class Carrinho {
     }
 
     public List<Produto> adicionarItens(Produto item) {
-        carrinho.add(item);
+        List <Produto> produtos = new ArrayList<>();
+        produtos.add(item);
+        carrinho.addAll(produtos);
+//        carrinho.add(item);
         return carrinho;
     }
 
@@ -32,7 +39,6 @@ public class Carrinho {
     public void verItemsDoCarrinho() {
         System.out.println("Itens do carrinho:");
         for (Produto item : carrinho) {
-            int i= 0;
             System.out.println("- " + item.getNome());
         }
     }

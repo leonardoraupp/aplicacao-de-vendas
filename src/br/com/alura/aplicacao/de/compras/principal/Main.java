@@ -4,25 +4,19 @@ import br.com.alura.aplicacao.de.compras.modelos.Carrinho;
 import br.com.alura.aplicacao.de.compras.modelos.CartaoDeCredito;
 import br.com.alura.aplicacao.de.compras.modelos.Produto;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner teclado = new Scanner(System.in);
         String respostaCadastrarProduto = "s";
         String nome = "";
         double valor = 0;
-
-
         CartaoDeCredito cartaoDeCredito = new CartaoDeCredito();
         Carrinho carrinho = new Carrinho();
 
         System.out.println("APLICAÇÃO DE VENDAS");
         cartaoDeCredito.configurarLimite();
-
 
         while (respostaCadastrarProduto.equalsIgnoreCase("s")) {
                     System.out.println("Digite o nome do produto");
@@ -45,9 +39,6 @@ public class Main {
         System.out.println(("Valor total do carrinho " + carrinho.getTotal()));
         carrinho.verItemsDoCarrinho();
         System.out.println("*****");
-
         System.out.println("Encerrando...");
-
     }
-
 }
