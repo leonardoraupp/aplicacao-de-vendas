@@ -19,7 +19,6 @@ public class Carrinho {
 
     public List<Produto> adicionarItens(Produto item) {
         carrinho.add(item);
-        System.out.println("Itens do carrinho no metodo "+ carrinho);
         return carrinho;
     }
 
@@ -27,13 +26,14 @@ public class Carrinho {
         for (Produto produto : getCarrinho()) {
             total = total + produto.getValor();
         }
-        System.out.println("Total dos items: " + total);
         return total;
     }
 
     public void verItemsDoCarrinho() {
+        System.out.println("Itens do carrinho:");
         for (Produto item : carrinho) {
-            System.out.println("Item: " + item.getNome());
+            int i= 0;
+            System.out.println("- " + item.getNome());
         }
     }
 }

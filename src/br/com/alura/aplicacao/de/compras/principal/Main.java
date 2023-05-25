@@ -4,13 +4,17 @@ import br.com.alura.aplicacao.de.compras.modelos.Carrinho;
 import br.com.alura.aplicacao.de.compras.modelos.CartaoDeCredito;
 import br.com.alura.aplicacao.de.compras.modelos.Produto;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
-        int opcaoUser = 1;
+        String respostaCadastrarProduto = "s";
+        String nome = "";
+        double valor = 0;
 
 
         CartaoDeCredito cartaoDeCredito = new CartaoDeCredito();
@@ -19,42 +23,31 @@ public class Main {
         System.out.println("APLICAÇÃO DE VENDAS");
         cartaoDeCredito.configurarLimite();
 
-        while (opcaoUser != 0) {
-            System.out.println("CADASTRO DE PRODUTOS");
 
-            while (opcaoUser != 0) {
-                String nome;
-                double valor;
+        while (respostaCadastrarProduto.equalsIgnoreCase("s")) {
+                    System.out.println("Digite o nome do produto");
+                    nome = teclado.next();
+                    System.out.println("Digite o valor do produto");
+                    valor = teclado.nextDouble();
+                    Produto produto = new Produto (nome, valor);
+                    carrinho.adicionarItens(produto);
+                    carrinho.verItemsDoCarrinho();
 
-
-                System.out.println("Digite o nome do produto");
-                nome = teclado.next();
-                System.out.println("Digite o valor do produto");
-                valor = teclado.nextDouble();
-                Produto produto = new Produto(nome, valor);
-//
-//                produto.setNome(nome);
-//                produto.setValor(valor);
-                carrinho.adicionarItens(produto);
-
-                System.out.println("Opção 0 para Sair");
-                System.out.println("Opção 1 para Continuar");
-                opcaoUser = teclado.nextInt();
+                    System.out.println("Cadastrar novo produto? (s/n): ");
+                    respostaCadastrarProduto = teclado.next();
             }
-            System.out.println("Passei aqui");
-            carrinho.somarProdutos();
-            cartaoDeCredito.aprovarCompra(carrinho);
-            System.out.println("Saldo atual: " + cartaoDeCredito.getSaldo());
-            System.out.println("Limite atual " + cartaoDeCredito.getLimite());
-            System.out.println(("Valor total do carrinho " + carrinho.getTotal()));
-            System.out.println("Items do carrinho");
-            carrinho.verItemsDoCarrinho();
+        carrinho.somarProdutos();
+        cartaoDeCredito.aprovarCompra(carrinho);
 
-            System.out.println("Encerrar programa - 0");
-            System.out.println("Continuar comprando - 1");
-            opcaoUser = teclado.nextInt();
-        }
+        System.out.println("*****");
+        System.out.println("Relatório:");
+        System.out.println("Limite atual " + cartaoDeCredito.getLimite());
+        System.out.println(("Valor total do carrinho " + carrinho.getTotal()));
+        carrinho.verItemsDoCarrinho();
+        System.out.println("*****");
+
         System.out.println("Encerrando...");
+
     }
 
 }
