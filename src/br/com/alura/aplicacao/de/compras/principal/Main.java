@@ -9,11 +9,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
-        double limite = 0;
         Carrinho carrinho = new Carrinho();
 
         System.out.println("Insira o limite do seu cartão: ");
-        limite = leitura.nextDouble();
+        double limite = leitura.nextDouble();
         CartaoDeCredito cartao = new CartaoDeCredito(limite);
 
         System.out.println("APLICAÇÃO DE VENDAS");

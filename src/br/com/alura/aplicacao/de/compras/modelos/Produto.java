@@ -1,15 +1,15 @@
 package br.com.alura.aplicacao.de.compras.modelos;
 
 public class Produto implements  Comparable<Produto> {
-    private static String descricao;
-    private static double valor;
+    private String descricao;
+    private double valor;
 
     public Produto(String descricao, double valor) {
         this.descricao = descricao;
         this.valor = valor;
     }
 
-    public static String getDescricao() {
+    public String getDescricao() {
         return descricao;
     }
 

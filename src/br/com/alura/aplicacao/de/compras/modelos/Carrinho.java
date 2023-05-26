@@ -20,7 +20,6 @@ public class Carrinho {
     }
 
     public List<Produto> adicionarItemAoCarrinho(Produto item) {
-        List <Produto> produtos = new ArrayList<>();
         carrinho.add(item);
         return carrinho;
     }
